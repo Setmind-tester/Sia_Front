@@ -1,0 +1,27 @@
+describe('Visita a Página com Usuários Mockados', () => {
+  it('Deve visitar a página de homologação com usuários mockados', () => {
+    // Visite a URL fornecida
+    cy.visit('https://homolog.agricultura.gov.br/sia/?enableMockedUsers=true');
+
+    cy.get('button.br-button.secondary')
+    .contains('Entrar com Mock') // Verifica se o botão contém o texto específico
+    .should('be.visible') // Garante que o botão está visível
+    .click(); // Clica no botão
+
+    cy.get('button.br-button.secondary.float-right')
+    .contains('Usuários PNUD') // Verifica se o botão contém o texto específico
+    .should('be.visible') // Garante que o botão está visível
+    .click(); // Clica no botão
+
+    // Selecionar o botão baseado no ícone dentro dele
+    cy.get('button.br-button.circle.small[title="Acessar"]')
+    .eq(5) // Seleciona o terceiro botão (índice começa em 0)
+    .should('be.visible') // Verifica se o botão está visível
+    .first()
+    .click(); // Clica no botão
+
+
+
+  
+  });
+});
